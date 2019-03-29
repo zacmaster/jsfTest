@@ -14,6 +14,8 @@ public class Alumno {
 		this.edad = edad;
 	}
 	
+	public Alumno() {}
+	
 	
 	public String getNombre() {
 		return nombre;
@@ -33,6 +35,13 @@ public class Alumno {
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
+	
+	
+	@Override
+	public String toString() {
+		return nombre + " " + apellido + "(" + edad + ")";
+	}
+	
 	
 	
 }

@@ -51,6 +51,23 @@
 <!-- 		<h:outputText rendered="#{demo.showed}" value="Mensaje oculto"/> -->
 		
 <!-- 	</p:outputPanel> -->
+	<h:outputLabel value="Nombre: ">
+		<p:inputText value="#{alumnosBean.alumno.nombre}"/>
+	</h:outputLabel>
+	<br/>
+	<h:outputLabel value="Apellido: ">
+		<p:inputText value="#{alumnosBean.alumno.apellido}"/>
+	</h:outputLabel>
+	<br/>
+	<h:outputLabel value="Edad: ">
+		<p:inputText value="#{alumnosBean.alumno.edad}"/>
+	</h:outputLabel>
+	<br/>
+	
+	<p:commandButton value="Agregar" action="#{alumnosBean.agregarAlumno}">
+		<p:ajax update="@form"></p:ajax>
+	</p:commandButton>	
+	
 	
 	<p:outputPanel  id="panel">
 	
