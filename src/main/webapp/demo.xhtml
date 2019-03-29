@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+  <title>Conditional rendering demo</title>
+</h:head>
+
+<h:body>
+<h:form id="form">
+	<style>
+		table, td,th{
+			border: solid 1px red;
+			border-collapse: collapse;
+		}
+		th, td{
+			padding: 10px;
+		}
+		
+		#form\:panel{
+			background-color: rgba(202, 224, 196, 0.5);
+		}
+	
+	</style>
+	<p:outputPanel>
+	
+		<p:inputSwitch value="#{demo.showed}" itemLabel="show">
+			<p:ajax update="panel" />
+		</p:inputSwitch>
+		
+		<br/>
+		<br/>
+		<br/>
+		
+<!-- 		<p:selectBooleanCheckbox value="#{demo.showed}" itemLabel="show"> -->
+<!-- 			<p:ajax update="@parent panel"/> -->
+<!-- 		</p:selectBooleanCheckbox> -->
+		
+		<br/>
+		<br/>
+		<br/>
+		
+	</p:outputPanel>
+	
+	
+<!-- 	<p:outputPanel id="panel"> -->
+<!-- 		<h:outputText rendered="#{demo.showed}" value="Mensaje oculto"/> -->
+		
+<!-- 	</p:outputPanel> -->
+	
+	<p:outputPanel  id="panel">
+	
+		<p:outputPanel rendered="#{demo.showed}">
+			<table>
+			<tr>
+				<th>id</th>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>Edad</th>
+				<th>Accion</th>
+			
+			</tr>			
+			<ui:repeat varStatus="status" var="alumno" value="#{alumnosBean.alumnos}">
+				<tr>
+					<td>#{status.index}</td>
+					<td>#{alumno.nombre}</td>
+					<td>#{alumno.apellido}</td>
+					<td>#{alumno.edad}</td>
+					<td>
+						<p:commandButton icon="fa fa-edit"></p:commandButton>
+						<p:commandButton icon="fa fa-remove"></p:commandButton>
+					</td>
+				</tr>
+			</ui:repeat>
+		</table>
+		</p:outputPanel>
+		
+	
+		
+	</p:outputPanel>
+	
+</h:form>
+
+
+</h:body>
+</html>
